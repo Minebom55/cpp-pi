@@ -1,20 +1,20 @@
-#include <iostream>
 #include <random>
+#include <iostream>
 
 int main() {
-    // Create random device and generator
+    // random number generator
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    // Define range
-    std::uniform_int_distribution<> dist(1, 100);
+    // uniform distribution between -1.0 and 1.0
+    std::uniform_real_distribution<long double> dist(-1.0L, 1.0L);
 
-    // Generate random number
-    int randomNumber = dist(gen);
+    // generate values
+    long double xPos = dist(gen);
+    long double yPos = dist(gen);
 
-    std::cout << randomNumber << std::endl;
+    std::cout << xPos << "\n";
+    std::cout << yPos << "\n";
 
-
-    system("pause");
     return 0;
 }
