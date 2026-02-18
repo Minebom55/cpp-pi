@@ -63,5 +63,6 @@ int main() {
     std::cout << "hits: " << hit << std::endl;
     std::cout << "misses: " << miss << std::endl;
 
+    system("pause");
     return 0;
 }
