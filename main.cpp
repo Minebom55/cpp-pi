@@ -1,9 +1,13 @@
 #include <random>
 #include <iostream>
+#include <thread>
+
 int miss = 0;
 int hit = 0;
-int ggr = 100000000;
-int oggr = ggr;
+int ggr;
+
+
+
 
 
 
@@ -22,6 +26,9 @@ std::mt19937 gen(rd());
 std::uniform_real_distribution<long double> dist(-1.0L, 1.0L);
 
 int main() {
+    std::cout << "Type how many times it will place dots: ";
+    std::cin >> ggr;
+    int oggr = ggr;
     while (ggr > 0) {
 
 
