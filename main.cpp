@@ -6,6 +6,7 @@
 int miss = 0;
 int hit = 0;
 int ggr;
+int dec;
 
 
 
@@ -29,6 +30,8 @@ std::uniform_real_distribution<long double> dist(-1.0L, 1.0L);
 int main() {
     std::cout << "Type how many times it will place dots: ";
     std::cin >> ggr;
+    std::cout 100<< "How many decimal places: ";
+    std::cin >> dec;
     int oggr = ggr;
     while (ggr > 0) {
 
@@ -59,7 +62,7 @@ int main() {
     long double output_pi = 4.0L * hit / oggr;
 
     std::cout << "------------------" << std::endl;
-    std::cout << "pi: " << std::fixed << std::setprecision(10) << output_pi << std::endl;
+    std::cout << "pi: " << std::fixed << std::setprecision(dec) << output_pi << std::endl;
     std::cout << "total points: " << oggr << std::endl;
     std::cout << "hits: " << hit << std::endl;
     std::cout << "misses: " << miss << std::endl;
