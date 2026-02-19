@@ -6,8 +6,9 @@
 int miss = 0;
 int hit = 0;
 int ggr;
+int progggr;
 int dec;
-
+long double output_pi;
 
 long double pyt(long double a, long double b) {
     long double a2 = a*a;
@@ -49,6 +50,11 @@ int main() {
             miss++;
             //std::cout << miss << std::endl;
         }
+
+      //  progggr = oggr -ggr;
+      //  std::cout << 4.0L * hit / progggr << std::endl; //Comment out this line
+        //to type the pi every time. Will hurt preformance
+
         ggr--;
         }
 
