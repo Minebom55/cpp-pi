@@ -9,11 +9,6 @@ int ggr;
 int dec;
 
 
-
-
-
-
-
 long double pyt(long double a, long double b) {
     long double a2 = a*a;
     long double b2 = b*b;
@@ -30,11 +25,10 @@ std::uniform_real_distribution<long double> dist(-1.0L, 1.0L);
 int main() {
     std::cout << "Type how many times it will place dots: ";
     std::cin >> ggr;
-    std::cout 100<< "How many decimal places: ";
+    std::cout << "How many decimal places: ";
     std::cin >> dec;
     int oggr = ggr;
     while (ggr > 0) {
-
 
         long double xPos = dist(gen);
         long double yPos = dist(gen);
@@ -57,7 +51,6 @@ int main() {
         }
         ggr--;
         }
-
 
     long double output_pi = 4.0L * hit / oggr;
 
