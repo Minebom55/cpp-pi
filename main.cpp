@@ -1,5 +1,6 @@
 #include <random>
 #include <iostream>
+#include <iomanip>
 #include <thread>
 
 int miss = 0;
@@ -58,7 +59,7 @@ int main() {
     long double output_pi = 4.0L * hit / oggr;
 
     std::cout << "------------------" << std::endl;
-    std::cout << "pi: " << output_pi << std::endl;
+    std::cout << "pi: " << std::fixed << std::setprecision(10) << output_pi << std::endl;
     std::cout << "total points: " << oggr << std::endl;
     std::cout << "hits: " << hit << std::endl;
     std::cout << "misses: " << miss << std::endl;
