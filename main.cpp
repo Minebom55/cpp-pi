@@ -1,7 +1,6 @@
 #include <random>
 #include <iostream>
 #include <iomanip>
-#include <thread>
 #include <chrono>
 
 int miss = 0;
