@@ -1,7 +1,6 @@
 #include <random>
 #include <iostream>
 #include <iomanip>
-#include <thread>
 
 int miss = 0;
 int hit = 0;
