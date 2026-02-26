@@ -8,6 +8,7 @@ int hit = 0;
 int ggr;
 int progggr;
 int dec;
+char progpi = 'n';
 long double output_pi;
 
 long double pyt(long double a, long double b) {
@@ -28,36 +29,70 @@ int main() {
     std::cin >> ggr;
     std::cout << "How many decimal places: ";
     std::cin >> dec;
+    std::cout << "Do you want to print output while calculating " << std::endl << " (y/N): ";
+    std::cin >> progpi;
     int oggr = ggr;
-    while (ggr > 0) {
 
-        long double xPos = dist(gen);
-        long double yPos = dist(gen);
 
-        /*debuging
-        std::cout << xPos << "\n";
-        std::cout << yPos << "\n";
-        */
+    if (progpi == 'y') {
+        //without printing pi while running
+        while (ggr > 0) {
 
-        long double pyth = pyt(xPos, yPos);
-        //std::cout << pyth << std::endl;
+            long double xPos = dist(gen);
+            long double yPos = dist(gen);
 
-        if (pyth <= 1.0L) {
-            hit++;
-            //std::cout << hit << std::endl;
+            /*debuging
+            std::cout << xPos << "\n";
+            std::cout << yPos << "\n";
+            */
+
+            long double pyth = pyt(xPos, yPos);
+            //std::cout << pyth << std::endl;
+
+            if (pyth <= 1.0L) {
+                hit++;
+                //std::cout << hit << std::endl;
+            }
+            else {
+                miss++;
+                //std::cout << miss << std::endl;
+            }
+
+              progggr = oggr -ggr;
+              std::cout << 4.0L * hit / progggr << std::endl;
+
+
+            ggr--;
         }
-        else {
-            miss++;
-            //std::cout << miss << std::endl;
+    }
+
+    else {
+        //without printing pi while running
+        while (ggr > 0) {
+
+            long double xPos = dist(gen);
+            long double yPos = dist(gen);
+
+            /*debuging
+            std::cout << xPos << "\n";
+            std::cout << yPos << "\n";
+            */
+
+            long double pyth = pyt(xPos, yPos);
+            //std::cout << pyth << std::endl;
+
+            if (pyth <= 1.0L) {
+                hit++;
+                //std::cout << hit << std::endl;
+            }
+            else {
+                miss++;
+                //std::cout << miss << std::endl;
+            }
+
+            ggr--;
         }
-
-      //  progggr = oggr -ggr;
-      //  std::cout << 4.0L * hit / progggr << std::endl; //Comment out this line
-        //to type the pi every time. Will hurt preformance
-
-        ggr--;
-        }
-
+    }
     long double output_pi = 4.0L * hit / oggr;
 
     std::cout << "------------------" << std::endl;
