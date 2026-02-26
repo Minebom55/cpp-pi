@@ -1,7 +1,7 @@
 #include <random>
 #include <iostream>
 #include <iomanip>
-#include <thread>
+#include <chrono>
 
 int miss = 0;
 int hit = 0;
@@ -32,7 +32,7 @@ int main() {
     std::cout << "Do you want to print output while calculating " << std::endl << " (y/N): ";
     std::cin >> progpi;
     int oggr = ggr;
-
+    auto start_time = std::chrono::steady_clock::now();
 
     if (progpi == 'y') {
         //without printing pi while running
@@ -94,12 +94,16 @@ int main() {
         }
     }
     long double output_pi = 4.0L * hit / oggr;
-
+      
+    auto end_time = std::chrono::steady_clock::now();
+    auto elapsed = std::chrono::duration<long double>(end_time - start_time).count();
+      
     std::cout << "------------------" << std::endl;
     std::cout << "pi: " << std::fixed << std::setprecision(dec) << output_pi << std::endl;
     std::cout << "total points: " << oggr << std::endl;
     std::cout << "hits: " << hit << std::endl;
     std::cout << "misses: " << miss << std::endl;
+    std::cout << "time taken: " << std::fixed << std::setprecision(6) << elapsed << " seconds" << std::endl;
 
     system("pause");
     return 0;
