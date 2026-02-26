@@ -1,6 +1,7 @@
 #include <random>
 #include <iostream>
 #include <iomanip>
+#include <chrono>
 
 int miss = 0;
 int hit = 0;
@@ -28,6 +29,7 @@ int main() {
     std::cout << "How many decimal places: ";
     std::cin >> dec;
     int oggr = ggr;
+    auto start_time = std::chrono::steady_clock::now();
     while (ggr > 0) {
 
         long double xPos = dist(gen);
@@ -56,6 +58,8 @@ int main() {
 
         ggr--;
         }
+    auto end_time = std::chrono::steady_clock::now();
+    auto elapsed = std::chrono::duration<long double>(end_time - start_time).count();
 
     long double output_pi = 4.0L * hit / oggr;
 
@@ -64,6 +68,7 @@ int main() {
     std::cout << "total points: " << oggr << std::endl;
     std::cout << "hits: " << hit << std::endl;
     std::cout << "misses: " << miss << std::endl;
+    std::cout << "time taken: " << std::fixed << std::setprecision(6) << elapsed << " seconds" << std::endl;
 
     system("pause");
     return 0;
