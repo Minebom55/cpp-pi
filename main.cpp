@@ -8,6 +8,7 @@ int hit = 0;
 int ggr;
 int progggr;
 int dec;
+char progpi = 'n';
 long double output_pi;
 
 long double pyt(long double a, long double b) {
@@ -28,41 +29,75 @@ int main() {
     std::cin >> ggr;
     std::cout << "How many decimal places: ";
     std::cin >> dec;
+    std::cout << "Do you want to print output while calculating " << std::endl << " (y/N): ";
+    std::cin >> progpi;
     int oggr = ggr;
     auto start_time = std::chrono::steady_clock::now();
-    while (ggr > 0) {
 
-        long double xPos = dist(gen);
-        long double yPos = dist(gen);
+    if (progpi == 'y') {
+        //without printing pi while running
+        while (ggr > 0) {
 
-        /*debuging
-        std::cout << xPos << "\n";
-        std::cout << yPos << "\n";
-        */
+            long double xPos = dist(gen);
+            long double yPos = dist(gen);
 
-        long double pyth = pyt(xPos, yPos);
-        //std::cout << pyth << std::endl;
+            /*debuging
+            std::cout << xPos << "\n";
+            std::cout << yPos << "\n";
+            */
 
-        if (pyth <= 1.0L) {
-            hit++;
-            //std::cout << hit << std::endl;
+            long double pyth = pyt(xPos, yPos);
+            //std::cout << pyth << std::endl;
+
+            if (pyth <= 1.0L) {
+                hit++;
+                //std::cout << hit << std::endl;
+            }
+            else {
+                miss++;
+                //std::cout << miss << std::endl;
+            }
+
+              progggr = oggr -ggr;
+              std::cout << 4.0L * hit / progggr << std::endl;
+
+
+            ggr--;
         }
-        else {
-            miss++;
-            //std::cout << miss << std::endl;
-        }
+    }
 
-      //  progggr = oggr -ggr;
-      //  std::cout << 4.0L * hit / progggr << std::endl; //Comment out this line
-        //to type the pi every time. Will hurt preformance
+    else {
+        //without printing pi while running
+        while (ggr > 0) {
 
-        ggr--;
+            long double xPos = dist(gen);
+            long double yPos = dist(gen);
+
+            /*debuging
+            std::cout << xPos << "\n";
+            std::cout << yPos << "\n";
+            */
+
+            long double pyth = pyt(xPos, yPos);
+            //std::cout << pyth << std::endl;
+
+            if (pyth <= 1.0L) {
+                hit++;
+                //std::cout << hit << std::endl;
+            }
+            else {
+                miss++;
+                //std::cout << miss << std::endl;
+            }
+
+            ggr--;
         }
+    }
+    long double output_pi = 4.0L * hit / oggr;
+      
     auto end_time = std::chrono::steady_clock::now();
     auto elapsed = std::chrono::duration<long double>(end_time - start_time).count();
-
-    long double output_pi = 4.0L * hit / oggr;
-
+      
     std::cout << "------------------" << std::endl;
     std::cout << "pi: " << std::fixed << std::setprecision(dec) << output_pi << std::endl;
     std::cout << "total points: " << oggr << std::endl;
